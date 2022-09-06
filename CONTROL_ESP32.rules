@@ -11,7 +11,7 @@
     (via_costs 50)
     (plane_via_costs 5)
     (start_ripup_costs 100)
-    (start_pass_no 1427)
+    (start_pass_no 128)
     (layer_rule F.Cu
       (active on)
       (preferred_direction horizontal)
@@ -46,19 +46,36 @@
   (via 
     "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
   )
+  (via 
+    "Via[0-1]_800:400_um-/POWER" "Via[0-1]_800:400_um" /POWER
+  )
+  (via 
+    "Via[0-1]_800:400_um-5V" "Via[0-1]_800:400_um" 5V
+  )
+  (via 
+    "Via[0-1]_800:400_um-GND" "Via[0-1]_800:400_um" GND
+  )
   (via_rule
     default "Via[0-1]_800:400_um"
   )
   (via_rule
     "kicad_default" "Via[0-1]_800:400_um-kicad_default"
   )
+  (via_rule
+    /POWER "Via[0-1]_800:400_um-/POWER"
+  )
+  (via_rule
+    5V "Via[0-1]_800:400_um-5V"
+  )
+  (via_rule
+    GND "Via[0-1]_800:400_um-GND"
+  )
   (class default
-    GND "Net-(J1-Pad2)" "Net-(C3-Pad1)" "Net-(D2-Pad2)" IO23 "Net-(D3-Pad2)" +3V3 IO35
-    IO2 IO13 IO15 IO12 "Net-(C2-Pad1)" IO36 IO39 IO34
-    IO32 IO33 IO25 IO26 IO27 IO14 "unconnected-(U1-Pad16)" "unconnected-(U1-Pad17)"
-    "unconnected-(U1-Pad18)" +5V SCL TX RX SDA "unconnected-(U1-Pad27)" "unconnected-(U1-Pad28)"
-    "unconnected-(U1-Pad29)" "unconnected-(U1-Pad30)" "unconnected-(U1-Pad31)" IO4 "unconnected-(U1-Pad33)" "unconnected-(U1-Pad36)" "unconnected-(U1-Pad37)" "unconnected-(U1-Pad38)"
-    "Net-(D1-Pad2)" "unconnected-(U3-PadS1)" "unconnected-(U4-PadS1)"
+    "Net-(D2-Pad2)" IO23 "Net-(D3-Pad2)" +3V3 IO35 IO2 IO13 IO15
+    IO12 IO36 IO39 IO34 IO32 IO33 IO25 IO26
+    IO27 IO14 "unconnected-(U1-Pad16)" "unconnected-(U1-Pad17)" "unconnected-(U1-Pad18)" SCL TX RX
+    SDA "unconnected-(U1-Pad27)" "unconnected-(U1-Pad28)" "unconnected-(U1-Pad29)" "unconnected-(U1-Pad30)" "unconnected-(U1-Pad31)" IO4 "unconnected-(U1-Pad33)"
+    "unconnected-(U1-Pad36)" "unconnected-(U1-Pad37)" "unconnected-(U1-Pad38)" "Net-(D1-Pad2)" "unconnected-(U3-PadS1)" "unconnected-(U4-PadS1)"
     (clearance_class default)
     (via_rule default)
     (rule
@@ -71,6 +88,49 @@
   (class "kicad_default"
     (clearance_class "kicad_default")
     (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class /POWER
+    VEE
+    (clearance_class /POWER)
+    (via_rule /POWER)
+    (rule
+      (width 600.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class 5V
+    VCC +5V
+    (clearance_class 5V)
+    (via_rule 5V)
+    (rule
+      (width 600.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class GND
+    GND
+    (clearance_class GND)
+    (via_rule GND)
+    (rule
+      (width 600.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class class1
+    (clearance_class default)
+    (via_rule default)
     (rule
       (width 250.0)
     )

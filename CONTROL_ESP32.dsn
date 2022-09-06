@@ -1,4 +1,4 @@
-(pcb "C:\Users\chris\OneDrive\Documentos\FUNPYTHON\PCB KICAD\FPY\ROBOT SOCCER\ROBOT_SOCCER\CONTROL ROBOT SOCCER\CONTROL_ESP32\CONTROL_ESP32.dsn"
+(pcb C:\Users\chris\OneDrive\Documentos\CWIFIv1\CONTROL_ESP32.dsn
   (parser
     (string_quote ")
     (space_in_quoted_tokens on)
@@ -1860,11 +1860,8 @@
         U4-H3 U4-V3 R10-3 C3-2 J2-2 SW2-2 SW5-2 SW5-2@1 J3-2 U1-2 U1-14 U1-20 U1-26
         D2-1 SW3-2 J1-1)
     )
-    (net "Net-(J1-Pad2)"
+    (net VCC
       (pins SW1-2 J1-2)
-    )
-    (net "Net-(C3-Pad1)"
-      (pins U2-3 C3-1 R1-1)
     )
     (net "Net-(D2-Pad2)"
       (pins D2-2 R1-2)
@@ -1893,9 +1890,6 @@
     )
     (net IO12
       (pins R7-2 SW5-1 SW5-1@1 U1-13)
-    )
-    (net "Net-(C2-Pad1)"
-      (pins U2-1 C2-1 D1-1)
     )
     (net IO36
       (pins R10-2 U1-3)
@@ -1934,7 +1928,7 @@
       (pins U1-18)
     )
     (net +5V
-      (pins U1-19)
+      (pins U2-3 C3-1 U1-19 R1-1)
     )
     (net SCL
       (pins J2-4 U1-22)
@@ -1987,6 +1981,9 @@
     (net "unconnected-(U4-PadS1)"
       (pins U4-S1 U4-S2 U4-S3 U4-S4)
     )
+    (net VEE
+      (pins U2-1 C2-1 D1-1)
+    )
     (class kicad_default
       (circuit
         (use_via Via[0-1]_800:400_um)
@@ -1996,44 +1993,34 @@
         (clearance 200.1)
       )
     )
+    (class /POWER /POWER
+      (circuit
+        (use_via Via[0-1]_800:400_um)
+      )
+      (rule
+        (width 600)
+        (clearance 200.1)
+      )
+    )
+    (class 5V +5V /A VCC VEE
+      (circuit
+        (use_via Via[0-1]_800:400_um)
+      )
+      (rule
+        (width 600)
+        (clearance 200.1)
+      )
+    )
+    (class GND GND
+      (circuit
+        (use_via Via[0-1]_800:400_um)
+      )
+      (rule
+        (width 600)
+        (clearance 200.1)
+      )
+    )
   )
   (wiring
-    (wire (path B.Cu 500  61040 -120650  62310 -119380)(net GND)(type protect))
-    (wire (path B.Cu 500  50800 -116840  54610 -120650  61040 -120650)(net GND)(type protect))
-    (wire (path B.Cu 500  85050 -130810  92750 -130810)(net GND)(type protect))
-    (wire (path B.Cu 500  120137 -116327  120137 -118872)(net GND)(type protect))
-    (wire (path B.Cu 500  111760 -115570  119380 -115570  120137 -116327)(net GND)(type protect))
-    (wire (path B.Cu 500  111760 -119380  111760 -115570)(net GND)(type protect))
-    (wire (path B.Cu 500  63935.7 -119380  63935.7 -118546)(net "Net-(J1-Pad2)")(type protect))
-    (wire (path B.Cu 500  64810 -119380  63935.7 -119380)(net "Net-(J1-Pad2)")(type protect))
-    (wire (path B.Cu 500  45720 -113030  45720 -116840)(net "Net-(J1-Pad2)")(type protect))
-    (wire (path B.Cu 500  63935.7 -118546  63500 -118110  60960 -118110)(net "Net-(J1-Pad2)")(type protect))
-    (wire (path B.Cu 500  55880 -113030  45720 -113030)(net "Net-(J1-Pad2)")(type protect))
-    (wire (path B.Cu 500  60960 -118110  55880 -113030)(net "Net-(J1-Pad2)")(type protect))
-    (wire (path B.Cu 500  114300 -119380  111760 -121920)(net "Net-(C3-Pad1)")(type protect))
-    (wire (path B.Cu 500  97790 -125730  97790 -119380)(net "Net-(C3-Pad1)")(type protect))
-    (wire (path B.Cu 500  106680 -121920  106680 -124460)(net "Net-(C3-Pad1)")(type protect))
-    (wire (path B.Cu 500  102870 -119380  105410 -121920  106680 -121920)(net "Net-(C3-Pad1)")(type protect))
-    (wire (path B.Cu 500  95250 -130810  95250 -128270)(net "Net-(C3-Pad1)")(type protect))
-    (wire (path B.Cu 500  111760 -121920  106680 -121920)(net "Net-(C3-Pad1)")(type protect))
-    (wire (path B.Cu 500  95250 -128270  97790 -125730)(net "Net-(C3-Pad1)")(type protect))
-    (wire (path B.Cu 500  106680 -123190  106680 -124460)(net "Net-(C3-Pad1)")(type protect))
-    (wire (path B.Cu 500  97790 -119380  102870 -119380)(net "Net-(C3-Pad1)")(type protect))
-    (wire (path B.Cu 500  120650 -124460  122677 -122433  122677 -118872)(net "Net-(D2-Pad2)")(type protect))
-    (wire (path B.Cu 500  116840 -124460  120650 -124460)(net "Net-(D2-Pad2)")(type protect))
-    (wire (path B.Cu 500  95250 -116840  93980 -118110)(net "Net-(C2-Pad1)")(type protect))
-    (wire (path B.Cu 500  82550 -130810  82550 -125730)(net "Net-(C2-Pad1)")(type protect))
-    (wire (path B.Cu 500  105410 -119380  105410 -116840)(net "Net-(C2-Pad1)")(type protect))
-    (wire (path B.Cu 500  109220 -119380  105410 -119380)(net "Net-(C2-Pad1)")(type protect))
-    (wire (path B.Cu 500  86360 -125730  90170 -121920)(net "Net-(C2-Pad1)")(type protect))
-    (wire (path B.Cu 500  105410 -116840  95250 -116840)(net "Net-(C2-Pad1)")(type protect))
-    (wire (path B.Cu 500  93980 -118110  93980 -121920)(net "Net-(C2-Pad1)")(type protect))
-    (wire (path B.Cu 500  90170 -121920  93980 -121920)(net "Net-(C2-Pad1)")(type protect))
-    (wire (path B.Cu 500  82550 -125730  86360 -125730)(net "Net-(C2-Pad1)")(type protect))
-    (wire (path B.Cu 500  69850 -119380  72390 -116840)(net "Net-(D1-Pad2)")(type protect))
-    (wire (path B.Cu 500  83820 -118110  83820 -121920)(net "Net-(D1-Pad2)")(type protect))
-    (wire (path B.Cu 500  72390 -116840  82550 -116840)(net "Net-(D1-Pad2)")(type protect))
-    (wire (path B.Cu 500  67310 -119380  69850 -119380)(net "Net-(D1-Pad2)")(type protect))
-    (wire (path B.Cu 500  82550 -116840  83820 -118110)(net "Net-(D1-Pad2)")(type protect))
   )
 )
